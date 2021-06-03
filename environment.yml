@@ -1,0 +1,24 @@
+name: l3
+channels:
+  - defaults
+  - conda-forge
+  # - mhoelzl
+dependencies:
+  - python>=3.8
+  - pip
+  - cytoolz
+  # - pydantic
+  - pip:
+    - -e .  # install git checkout of l3 in editable mode
+    # add here only pip-packages that are not available in conda/conda-forge!
+    - pygame>=2.0.1
+  # DEVELOPMENT ONLY PACKAGES (could also be kept in a separate environment file)
+  # - autoflake
+  - black
+  # - pre_commit
+  - pytest
+  # - pytest-cov
+  # - recommonmark
+  - rope
+  # - sphinx
+  # - tox

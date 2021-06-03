@@ -13,7 +13,6 @@ to "The Landlord's Game" in the documentation or source code of this
 implementation (except in this paragraph) refer to Elizabeth Magie's
 public domain version.
 
-This implementation is designed as an exercise for my Python courses and
-as running example for a software architecture book I'm co-writing; I'm
+This implementation is designed as an exercise for my Python courses; I'm
 currently not putting any effort into polishing the game or creating an
 enjoyable (or even realistically playable) gaming experience.

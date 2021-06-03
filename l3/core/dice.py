@@ -1,11 +1,7 @@
-import itertools
-import math
 import random
 import re
 from abc import ABC, abstractmethod
 from typing import Sequence, Callable, Tuple, List
-
-from l3.core.utils import consume
 
 
 class Die(ABC):
@@ -30,8 +26,13 @@ class Die(ABC):
         pass
 
 
-class ConstantOffset(Die):
-    """A constant offset for a set of dice."""
+class ConstantDie(Die):
+    """
+    A die that returns a constant value.
+
+    Mostly useful as an offset for rpg dice, but can also be used to simulate a
+    cheating player using loaded dice.
+    """
 
     def __init__(self, value):
         self._value = value
@@ -153,7 +154,7 @@ class RpgDice:
         """
         match = cls.DICE_REGEX.match(configuration)
         num_dice = int(match.group(1) or '1')
-        dice_kind = RegularDie if match.group(2) else ConstantOffset
+        dice_kind = RegularDie if match.group(2) else ConstantDie
         num_sides = int(match.group(3))
         return num_dice, dice_kind, num_sides
 

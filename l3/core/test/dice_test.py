@@ -3,25 +3,25 @@ import pytest
 from l3.core import dice
 
 
-class TestConstantOffset:
+class TestConstantDie:
     def test_roll_does_not_crash(self):
-        d = dice.ConstantOffset(5)
+        d = dice.ConstantDie(5)
         d.roll()
 
-    def test_constant_offset_returns_value_passed_to_constructor(self):
+    def test_constant_die_returns_value_passed_to_constructor(self):
         initial_value = 93
-        d = dice.ConstantOffset(initial_value)
+        d = dice.ConstantDie(initial_value)
         assert d.value == initial_value
 
     def test_roll_does_not_change_value(self):
         initial_value = 27
-        d = dice.ConstantOffset(initial_value)
+        d = dice.ConstantDie(initial_value)
         d.roll()
         assert d.value == initial_value
 
     def test_num_sides_returns_value(self):
         initial_value = 13
-        d = dice.ConstantOffset(initial_value)
+        d = dice.ConstantDie(initial_value)
         assert d.num_sides == initial_value
 
 
@@ -131,7 +131,7 @@ class TestPairOfDice:
 # noinspection PyPep8Naming
 class TestRpgDice:
     from l3.core.dice import RegularDie as D
-    from l3.core.dice import ConstantOffset as C
+    from l3.core.dice import ConstantDie as C
 
     @pytest.mark.parametrize('conf,expected', [('1d6', (1, D, 6)),
                                                ('3d8', (3, D, 8)),
